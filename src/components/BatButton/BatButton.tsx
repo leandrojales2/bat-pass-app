@@ -6,13 +6,15 @@ import { BatTextInput } from '../BatTextInput/BatTextInput';
 import generatePass from '../../services/passwordService';
 
 import * as Clipboard from 'expo-clipboard'
+import { useSelectionStore } from '../../store/store';
 
 export function BatButton() {
 
   const [pass, setPass] = useState('')
+  const { GenerationOfTwelveOrGenerationOfEight } = useSelectionStore() as { GenerationOfTwelveOrGenerationOfEight: { number: number } };
 
   function handleGenerateButton(){
-    let generateToken = generatePass()
+    let generateToken = generatePass(GenerationOfTwelveOrGenerationOfEight.number)
     setPass(generateToken)
   }
 

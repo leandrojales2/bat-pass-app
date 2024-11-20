@@ -1,9 +1,9 @@
-export default function generatePass () {
+export default function generatePass (number: number) {
     let password: string = ''
     let characters: string = 'Aa@$#123456789abcdefghijFGHIJKLMNOP!'
-    let passwordLength = 8
+    
 
-    for(let index = 0; index < passwordLength; index++){
+    for(let index = 0; index < number; index++){
         password += characters.charAt(
             Math.floor(Math.random() * characters.length)
         )
